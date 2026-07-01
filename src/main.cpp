@@ -1,72 +1,98 @@
+#include "src/converter.cpp"
 #include "converter.hpp"
 #include <iostream>
 
 using namespace std;
 
 int main() {
-    int choice = -1;
-    double value = 0.0;
-    double result = 0.0;
+    int choice;
+    double value;
 
     do {
-        printMenu();
+        cout << "Unit Converter" << endl;
+        cout << "1. Inches to Centimeters" << endl;
+        cout << "2. Centimeters to Inches" << endl;
+        cout << "3. Pounds to Kilograms" << endl;
+        cout << "4. Kilograms to Pounds" << endl;
+        cout << "5. Fahrenheit to Celsius" << endl;
+        cout << "6. Celsius to Fahrenheit" << endl;
+        cout << "7. Exit" << endl;
+        cout << "Choice (1-7): " << endl;
         cin >> choice;
 
-        if (!isValidMenuChoice(choice)) {
-            cout << "Invalid choice. Please try again." << endl;
-            continue;
-        }
+        switch(choice) {
+            case 1:
+                cout << "Enter inches:";
+                cin >> value;
 
-        if (choice == EXIT_CHOICE) {
-            cout << "Goodbye!" << endl;
-            break;
-        }
-
-        cout << "Enter value: ";
-        cin >> value;
-
-        if (!isValidValueForChoice(choice, value)) {
-            cout << "Invalid value for this conversion. Please try again." << endl;
-            continue;
-        }
-
-        switch (choice) {
-            case INCHES_TO_CENTIMETERS:
-                result = inchesToCentimeters(value);
-                cout << value << " inches = " << result << " centimeters" << endl;
+                if(value < 0) {
+                    cout << "Negative values are not allowed." << endl;
+                }
+                else if(value > 0) {
+                    cout << inchesToCentimeters(value) << " cm" << endl;
+                }
                 break;
 
-            case CENTIMETERS_TO_INCHES:
-                result = centimetersToInches(value);
-                cout << value << " centimeters = " << result << " inches" << endl;
+            case 2:
+                cout << "Enter centimeters: ";
+                cin >> value;
+
+                if(value < 0) {
+                    cout << "Negative values are not allowed." << endl;
+                }
+                else if(value > 0) {
+                    cout << centimetersToInches(value) << " inches" << endl;
+                }
                 break;
 
-            case POUNDS_TO_KILOGRAMS:
-                result = poundsToKilograms(value);
-                cout << value << " pounds = " << result << " kilograms" << endl;
+            case 3:
+                cout << "Enter pounds: ";
+                cin >> value;
+
+                if(value < 0) {
+                    cout << "Negative values are not allowed." << endl;
+                }
+                else if(value > 0) {
+                    cout << poundsToKilograms(value) << " kg" << endl;
+                }
                 break;
 
-            case KILOGRAMS_TO_POUNDS:
-                result = kilogramsToPounds(value);
-                cout << value << " kilograms = " << result << " pounds" << endl;
+            case 4:
+                cout << "Enter kilograms: ";
+                cin >> value;
+
+                if(value < 0) {
+                    cout << "Negative values are not allowed." << endl;
+                }
+                else if(value > 0) {
+                    cout << kilogramsToPounds(value) << " pounds" << endl;
+                }
                 break;
 
-            case FAHRENHEIT_TO_CELSIUS:
-                result = fahrenheitToCelsius(value);
-                cout << value << " Fahrenheit = " << result << " Celsius" << endl;
+            case 5:
+                cout << "Enter Fahrenheit: ";
+                cin >> value;
+                cout << fahrenheitToCelsius(value) << "C" << endl;
                 break;
 
-            case CELSIUS_TO_FAHRENHEIT:
-                result = celsiusToFahrenheit(value);
-                cout << value << " Celsius = " << result << " Fahrenheit" << endl;
+            case 6:
+                cout << "Enter Celsius: ";
+                cin >> value;
+                cout << celsiusToFahrenheit(value) << "F" << endl;
+                break;
+
+            case 7:
+                cout << "Goodbye!" << endl;
                 break;
 
             default:
-                cout << "Unexpected choice." << endl;
-                break;
+                cout << "Invalid choice." << endl;
+            } 
+            
+        for (int number = 0; number < 1; number++) {
+            if (number < 0)
+            cout << number << endl;
         }
+    }while (choice != 7);
 
-    } while (choice != EXIT_CHOICE);
-
-    return 0;
-}
+    return 0; 
