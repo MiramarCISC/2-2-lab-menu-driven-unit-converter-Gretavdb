@@ -1,4 +1,3 @@
-#include "src/converter.cpp"
 #include "converter.hpp"
 #include <iostream>
 
@@ -95,4 +94,5 @@ int main() {
         }
     }while (choice != 7);
 
-    return 0; 
+    return 0;
+}
