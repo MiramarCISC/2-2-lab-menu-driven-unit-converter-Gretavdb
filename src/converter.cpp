@@ -4,19 +4,23 @@
 using namespace std;
 
 double inchesToCentimeters(double inches) {
-    return inches * 2.54;   // Converts inches to centimeters.
+    return inches * CENTIMETERS_PER_INCH;   // Converts inches to centimeters.
+    //@Gretavdb: Exchanged numbers with constants
 }
 
 double centimetersToInches(double centimeters) {
-    return centimeters / 2.54;   // Converts centimeters to inches.
+    return centimeters / CENTIMETERS_PER_INCH;   // Converts centimeters to inches.
+    //@Gretavdb: Exchanged numbers with constants
 }
 
 double poundsToKilograms(double pounds) {
-    return pounds * 0.453592;   // Converts pounds to kilograms.
+    return pounds / POUNDS_PER_KILOGRAM;   // Converts pounds to kilograms.
+    //@Gretavdb: Exchanged numbers with constants
 }
 
 double kilogramsToPounds(double kilograms) {
-    return kilograms / 0.453592;   // Converts kilograms to pounds.
+    return kilograms * POUNDS_PER_KILOGRAM;   // Converts kilograms to pounds. 
+    //@Gretavdb: Exchanged numbers with constants
 }
 
 double fahrenheitToCelsius(double fahrenheit) {
